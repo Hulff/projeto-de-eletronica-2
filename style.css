@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+body,main,header,footer,div,ul,li,input,button {
+    font-family: Roboto;
+    color: white;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    list-style: none;
+    font-weight: bold;
+}
+
+body {
+    background-color: #149BE7;
+}
+
+.cabecalho {
+
+}
+
+.titulo-pagina {
+    text-align: end;
+    margin-right: 56px;
+    font-size: xxx-large;
+}
+
+.lista-btns {
+    display: flex;
+    flex-direction: row;    
+}
+
+.lista-btns-opcoes{
+    width: 30%;
+}
+
+.btn-opcao {
+    background-color: black;
+    padding: 4px 16px;
+    border-radius: 10px;
+    margin: 20px 30px;
+    font-size: unset;
+}

@@ -4,6 +4,71 @@
         <link href="./style.css" rel="stylesheet">
     </head>
     <body>
+        <header class="cabecalho">
+            <h1 class="titulo-pagina">Eletronica de Potencia.</h1>
+        </header>
+        <div class="div-btn">
+            <ul class="lista-btns">
+                <li class="lista-btns-opcoes">
+                    <button class="btn-opcao">Conversor CC-CC BOOST</button>
+                </li>
+                <li class="lista-btns-opcoes">
+                    <button class="btn-opcao">Conversor2</button>
+                </li>
+                <li class="lista-btns-opcoes">
+                    <button class="btn-opcao">Conversor3</button>
+                </li>
+                <li class="lista-btns-opcoes">
+                    <button class="btn-opcao">Conversor4</button>
+                </li>
+            </ul>
+        </div>
+        <main>
+            <div class="conversor-boost">
+                <div class="lista-input-primaria">
+                  <ul>
+                    <li class="listas">
+                        <input type="number" placeholder="insira o valor aqui"  id="valor-vs">
+                    </li>
+                    <li class="listas">
+                        <input type="number" placeholder="insira o valor aqui"  id="valor-vo">
+                    </li>
+                    <li class="listas">
+                        <input type="number" placeholder="insira o valor aqui"  id="valor-io">
+                    </li>
+                    <li class="listas"> 
+                        <input type="number" placeholder="insira o valor aqui"  id="valor-fch">
+                    </li>
+                  </ul>
+                </div>
+                <div class="lista-input-secundaria">
+                    <ul>
+                        <li class="listas">
+                            <input type="number" placeholder="insira o valor aqui"  id="valor-L">
+                        </li>
+                        
+                        <li class="listas">
+                            <input type="number" placeholder="insira o valor aqui"  id="valor-C">
+                        </li>
+                        
+                        <li class="listas">
+                            <input type="number" placeholder="insira o valor aqui"  id="valor-deltaL">
+                        </li>
+                        
+                        <li class="listas">
+                            <input type="number" placeholder="insira o valor aqui"  id="valor-deltaC">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="div-btn-calculo">
+                <div class="btn-calculo-boost">
+                    <button>Calcular</button>
+                </div>
+            </div>
+        </footer>
         <script src="./app.js"></script>
     </body>
 </html>
