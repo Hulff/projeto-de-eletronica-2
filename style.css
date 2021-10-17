@@ -114,6 +114,14 @@ h2 {
     padding: 4px 26px;
 }
 
+.div-resultado {
+    width: 30%;
+    text-align: center;
+}
+
+h4 {
+    font-size: xx-large;
+}
 
 ::-webkit-scrollbar {
     width: 8px;

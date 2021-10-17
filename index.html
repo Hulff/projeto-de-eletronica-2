@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <link href="./style.css" rel="stylesheet">
+        <title>Eletronica de Potencia</title>
     </head>
     <body>
         <header class="cabecalho">
@@ -80,8 +82,11 @@
         <footer>
             <div style="display: none;" class="div-btn-calcular">
                 <div class="div-calculo">
-                    <button onclick="resultado()" class="btn-calcular"> Calcular</button>
+                    <button onclick="mostraresultado()" class="btn-calcular"> Calcular</button>
                 </div>
+            </div>
+            <div class="div-resultado" style="display: none;">
+                <h4 class="textoResultado"></h4>
             </div>
         </footer>
         <script src="./app.js"></script>
