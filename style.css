@@ -12,8 +12,13 @@ body,main,header,footer,div,ul,li,input,button,h3,h2 {
     font-weight: bold;
 }
 
+
 body {
     background-color: #149BE7;
+}
+
+footer {
+    margin-top: 50px;
 }
 
 .titulo-pagina {
@@ -76,10 +81,11 @@ input {
     border-radius: 0px 83px;
     font-size: larger;
     padding: 1.1%;
+    color:black;
 }
 
 h3 {
-    margin-left: 7%;
+    margin-left: 1%;
 }
 h2 {
     font-size: medium;
@@ -97,6 +103,7 @@ h2 {
 }
 
 .div-calculo {
+    margin-bottom: 50px;
     display: flex;
     justify-content: center;
 }
@@ -105,4 +112,24 @@ h2 {
     border-radius: 20px;
     font-size: larger;
     padding: 4px 26px;
+}
+
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+  
+::-webkit-scrollbar-track {
+    box-shadow: white;
+}
+::-webkit-scrollbar-thumb {
+    border-radius:12px;
+    background-color: black;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(41, 41, 41);
+} 
+
+button:hover {
+    background-color:rgb(19, 44, 90);
 }

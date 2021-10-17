@@ -10,7 +10,7 @@
         <div class="div-btn">
             <ul class="lista-btns">
                 <li class="lista-btns-opcoes">
-                    <button class="btn-opcao">Conversor CC-CC BOOST</button>
+                    <button onclick="mostrarConversorBoost()" class="btn-opcao" id="btn-boost" >Conversor CC-CC BOOST</button>
                 </li>
                 <li class="lista-btns-opcoes">
                     <button class="btn-opcao">Conversor2</button>
@@ -24,61 +24,65 @@
             </ul>
         </div>
         <main>
-            <div class="conversor-boost">
+            <div style="display:none;" class="div-conversor-boost">
+             <div class="conversor-boost">
                 <div class="lista-input-primaria">
                   <ul class="ul-input-primaria">
                       
                     <li class="listas">
-                        <h3>texto</h3>
-                        <input type="number" placeholder="insira o valor aqui"  id="valor-vs">
+                        <h3>Tensão de entrada</h3>
+                        <input type="number" placeholder="insira o valor aqui"  id="valor-vs" value="0">
                     </li>
                     <li class="listas">
-                        <h3>texto</h3>
-                        <input type="number" placeholder="insira o valor aqui"  id="valor-vo">
+                        <h3>Tensão de Saída</h3>
+                        <input type="number" placeholder="insira o valor aqui"  id="valor-vo" value="0">
                     </li>
                     <li class="listas">
-                        <h3>texto</h3>
-                        <input type="number" placeholder="insira o valor aqui"  id="valor-io">
+                        <h3>Corrente de  Saída</h3>
+                        <input type="number" placeholder="insira o valor aqui"  id="valor-io" value="0">
                     </li>
                     <li class="listas"> 
-                        <h3>texto</h3>
-                        <input type="number" placeholder="insira o valor aqui"  id="valor-fch">
+                        <h3>Frequencia de Chaveamento</h3>
+                        <input type="number" placeholder="insira o valor aqui"  id="valor-fch" value="0">
                     </li>
                   </ul>
                 </div>
                 <div class="div-trocar-boost">
                     <h2>calcular x y</h2>
-                    <button class="btn-trocar-boost">trocar</button>
+                    <button onclick="trocaropcao()" class="btn-trocar-boost">trocar</button>
                 </div>
                 <div class="lista-input-secundaria">
                     <ul class="ul-input-secundaria">
-                        <li class="listas">
-                            <h3></h3>
-                            <input type="number" placeholder="insira o valor aqui"  id="valor-L">
+                        <li id="L" class="listas">
+                            <h3>Indutância</h3>
+                            <input class="input-secundarios" type="number" placeholder="insira o valor aqui"  id="valor-L" value="0">
                         </li>
                         
-                        <li class="listas">
-                            <h3>texto</h3>
-                            <input type="number" placeholder="insira o valor aqui"  id="valor-C">
+                        <li id="C" class="listas">
+                            <h3>Capacitância</h3>
+                            <input class="input-secundarios" type="number" placeholder="insira o valor aqui"  id="valor-C" value="0">
                         </li>
                         
-                        <li class="listas">
-                            <h3>texto</h3>
-                            <input type="number" placeholder="insira o valor aqui"  id="valor-deltaL">
+                        <li id="deltaL" class="listas">
+                            <h3>Ondulação da Corrente no Indutor</h3>
+                            <input class="input-secundarios" type="number" placeholder="insira o valor aqui"  id="valor-deltaL" value="0">
                         </li>
                         
-                        <li class="listas">
-                            <h3>texto</h3>
-                            <input type="number" placeholder="insira o valor aqui"  id="valor-deltaC">
+                        <li id="deltaC" class="listas">
+                            <h3>Ondulação da Tensão no Capacitor</h3>
+                            <input class="input-secundarios" type="number" placeholder="insira o valor aqui"  id="valor-deltaC" value="0">
                         </li>
                     </ul>
                 </div>
+             </div>
             </div>
         </main>
         <footer>
+            <div style="display: none;" class="div-btn-calcular">
                 <div class="div-calculo">
-                    <button class="btn-calcular"> Calcular</button>
+                    <button onclick="resultado()" class="btn-calcular"> Calcular</button>
                 </div>
+            </div>
         </footer>
         <script src="./app.js"></script>
     </body>
