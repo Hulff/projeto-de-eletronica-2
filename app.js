@@ -13,6 +13,9 @@ const inputC = document.querySelector('#valor-C')
 const inputDeltaL = document.querySelector('#valor-deltaL')
 const inputDeltaC = document.querySelector('#valor-deltaC')
 
+const divResultado = document.querySelector('.div-resultado')
+const textoResultado = document.querySelector('.textoResultado')
+
 
 
 
@@ -90,6 +93,27 @@ function calculosBoost() {
     }
 };
 
-function resultado () {
+function mostraresultado () {
+
     console.log(calculosBoost())
-}
+    divResultado.style.display = 'initial'
+
+   let D = calculosBoost().razaoCiclica
+   let L = calculosBoost().indutancia
+   let C = calculosBoost().capacitancia
+   let deltaC = calculosBoost().ondulacaoC
+   let deltaL = calculosBoost().ondulacaoL
+
+   let vs = document.getElementById('valor-vs').value;
+   let vo = document.getElementById('valor-vo').value;
+   let io = document.getElementById('valor-io').value;
+   let fch = document.getElementById('valor-fch').value;
+   let cV = inputC.value;
+   let iL = inputL.value;
+   let oiL =inputDeltaL.value;
+   let ovC = inputDeltaC.value;
+
+    textoResultado.innerHTML= null
+    textoResultado.innerHTML = 'Razão Ciclica = '+ D
+    console.log(fch)
+}; 
