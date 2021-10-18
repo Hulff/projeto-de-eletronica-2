@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 
-body,main,header,footer,div,ul,li,input,button,h3,h2 {
+body,main,header,footer,div,ul,li,input,button,h4,h3,h2 {
     font-family: Roboto;
     color: white;
     padding: 0;
@@ -120,7 +120,8 @@ h2 {
 }
 
 h4 {
-    font-size: xx-large;
+    font-size: 25px;
+    margin-bottom: 40px;
 }
 
 ::-webkit-scrollbar {
@@ -139,5 +140,6 @@ h4 {
 } 
 
 button:hover {
-    background-color:rgb(19, 44, 90);
+    background-color:rgb(255, 255, 255);
+    color: black;
 }
