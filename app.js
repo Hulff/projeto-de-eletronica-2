@@ -25,7 +25,7 @@ function mostrarConversorBoost() {
 
     liDeltaC.style.display = 'none'
     liDeltaL.style.display = 'none'
-
+    btnBoost.disabled = true
 }
 
 function trocaropcao () {
@@ -78,6 +78,7 @@ function calculosBoost() {
         }    
     } else if (L!=0,C!=0,deltaC==0,deltaL==0) {
         return {
+            razaoCiclica: D,
             ondulacaoC:formulas.deltaC,
             ondulacaoL:formulas.deltaL,
             indutancia:L,
@@ -85,6 +86,7 @@ function calculosBoost() {
         }
     } else if (L==0,C==0,deltaC!=0,deltaL!=0) {
         return {
+            razaoCiclica: D,
             indutancia:formulas.L,
             capacitancia:formulas.C,
             ondulacaoC:deltaC,
@@ -92,6 +94,40 @@ function calculosBoost() {
         }
     }
 };
+
+function indentificarOpcao () {
+
+    let vs = document.getElementById('valor-vs').value;
+    let vo = document.getElementById('valor-vo').value;
+    let io = document.getElementById('valor-io').value;
+    let fch = document.getElementById('valor-fch').value;
+    let C = document.getElementById('valor-C').value;
+    let L = document.getElementById('valor-L').value;
+    let deltaL = document.getElementById('valor-deltaL').value;
+    let deltaC = document.getElementById('valor-deltaC').value;
+
+
+    console.log('vs '+vs)
+    console.log('vo '+vo)
+    console.log('io '+io)
+    console.log('fch '+ fch)
+    console.log('C ' + C)
+    console.log('L ' + L)
+    console.log('deltaL '+ deltaL)
+    console.log('deltaC '+ deltaC)
+
+    while (fch == 0) {
+        return 'D'
+    }; if ( C != 0 && L !=0 ) {
+        return 'all'
+    } else if ( L !=0  ) {
+        return 'oIL'
+    } else if ( C != 0) {
+        return 'oVC'
+    }  else {
+        return 'error'
+    }
+}
 
 function mostraresultado () {
 
@@ -104,16 +140,15 @@ function mostraresultado () {
    let deltaC = calculosBoost().ondulacaoC
    let deltaL = calculosBoost().ondulacaoL
 
-   let vs = document.getElementById('valor-vs').value;
-   let vo = document.getElementById('valor-vo').value;
-   let io = document.getElementById('valor-io').value;
-   let fch = document.getElementById('valor-fch').value;
-   let cV = inputC.value;
-   let iL = inputL.value;
-   let oiL =inputDeltaL.value;
-   let ovC = inputDeltaC.value;
-
     textoResultado.innerHTML= null
-    textoResultado.innerHTML = 'Razão Ciclica = '+ D
-    console.log(fch)
+
+    if (indentificarOpcao() == 'D') {
+        textoResultado.innerHTML = 'Razão Cíclica = '+ D
+    } else if (indentificarOpcao() == 'all') {
+        textoResultado.innerHTML = 'Razão Cíclica = '+ D +'<br>'+'Ondulação da Corrente no Indutor = ' + deltaL+' mA' + '<br>' + 'Ondulação da Tensão no Capacitor = ' + deltaC + ' mV'
+    } else if (indentificarOpcao() == 'oIL') {
+        textoResultado.innerHTML = 'Ondulação da Corrente no Indutor = ' + deltaL +' mA'
+    } else if ( indentificarOpcao() == 'oVC') {
+        textoResultado.innerHTML = 'Ondulação da Tensão no Capacitor = ' + deltaC + ' mV'
+    }
 }; 
