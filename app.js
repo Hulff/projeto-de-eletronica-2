@@ -116,14 +116,21 @@ function indentificarOpcao () {
     console.log('deltaL '+ deltaL)
     console.log('deltaC '+ deltaC)
 
-    while (fch == 0) {
+    
+      if (vs != 0 && vo != 0) {
         return 'D'
-    }; if ( C != 0 && L !=0 ) {
-        return 'all'
+    } else if ( C != 0 && L !=0 && io!=0) {
+        return 'all type 1'
     } else if ( L !=0  ) {
         return 'oIL'
-    } else if ( C != 0) {
+    } else if ( C != 0 && io != 0) {
         return 'oVC'
+    } else if ( deltaL != 0 ) {
+        return 'L'
+    } else if ( deltaC !=0 && io !=0) {
+        return 'C'
+    } else if ( deltaC !=0 && io !=0 && deltaL != 0) {
+        return 'all type 2'
     }  else {
         return 'error'
     }
@@ -144,11 +151,19 @@ function mostraresultado () {
 
     if (indentificarOpcao() == 'D') {
         textoResultado.innerHTML = 'Razão Cíclica = '+ D
-    } else if (indentificarOpcao() == 'all') {
+    } else if (indentificarOpcao() == 'all type 1') {
         textoResultado.innerHTML = 'Razão Cíclica = '+ D +'<br>'+'Ondulação da Corrente no Indutor = ' + deltaL+' mA' + '<br>' + 'Ondulação da Tensão no Capacitor = ' + deltaC + ' mV'
     } else if (indentificarOpcao() == 'oIL') {
         textoResultado.innerHTML = 'Ondulação da Corrente no Indutor = ' + deltaL +' mA'
     } else if ( indentificarOpcao() == 'oVC') {
         textoResultado.innerHTML = 'Ondulação da Tensão no Capacitor = ' + deltaC + ' mV'
+    } else if (indentificarOpcao() == 'error') {
+        textoResultado.innerHTML = ' Algum campo importante esta em 0'
+    } else if (indentificarOpcao() == 'L') {
+        textoResultado.innerHTML = 'Indutancia = '+ L + ' microH' 
+    } else if (indentificarOpcao() == 'C') {
+        textoResultado.innerHTML = 'Capacitancia ='+C+' microF'
+    } else if ( indentificarOpcao() == 'all type 2') {
+        textoResultado.innerHTML = 'Razão Cíclica = '+ D +'<br>'+'Indutancia = ' + L+' microH' + '<br>' + 'Capacitancia = ' + C + ' microF'
     }
 }; 
