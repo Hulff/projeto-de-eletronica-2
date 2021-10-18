@@ -30,20 +30,22 @@ function mostrarConversorBoost() {
 
 function trocaropcao () {
 
-    if ( liDeltaC.style.display== 'none', liDeltaL.style.display == 'none') {
+    if ( liDeltaC.style.display== 'none' && liDeltaL.style.display == 'none') {
         
         liDeltaC.style.display = 'initial'
         liDeltaL.style.display = 'initial'
+
         liL.style.display = 'none'
         liC.style.display = 'none'
 
         inputL.value = 0
         inputC.value = 0
 
-    } else if (liDeltaC.style.display!= 'none', liDeltaL.style.display != 'none') {
+    } else if (liDeltaC.style.display!= 'none' && liDeltaL.style.display != 'none') {
 
         liDeltaC.style.display = 'none'
         liDeltaL.style.display = 'none'
+        
         liL.style.display = 'initial'
         liC.style.display = 'initial'
 
@@ -107,14 +109,14 @@ function indentificarOpcao () {
     let deltaC = document.getElementById('valor-deltaC').value;
 
 
-    console.log('vs '+vs)
-    console.log('vo '+vo)
-    console.log('io '+io)
-    console.log('fch '+ fch)
-    console.log('C ' + C)
-    console.log('L ' + L)
-    console.log('deltaL '+ deltaL)
-    console.log('deltaC '+ deltaC)
+    console.log('vs = '+vs)
+    console.log('vo = '+vo)
+    console.log('io = '+io)
+    console.log('fch = '+ fch)
+    console.log('C = ' + C)
+    console.log('L = ' + L)
+    console.log('deltaL = '+ deltaL)
+    console.log('deltaC = '+ deltaC)
 
     
       if (vs != 0 && vo != 0) {
