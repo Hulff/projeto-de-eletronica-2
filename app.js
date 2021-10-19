@@ -8,11 +8,16 @@ const liC = document.querySelector('#C')
 const liDeltaL = document.querySelector('#deltaL')
 const liDeltaC = document.querySelector('#deltaC')
 
-const inputVs =  document.querySelector()
+const inputVs =  document.querySelector('#valor-vs')
+const inputVo = document.querySelector('#valor-vo')
+const inputIo = document.querySelector('#valor-io')
+const inputFch = document.querySelector('#valor-fch')
 const inputL = document.querySelector('#valor-L')
 const inputC = document.querySelector('#valor-C')
 const inputDeltaL = document.querySelector('#valor-deltaL')
 const inputDeltaC = document.querySelector('#valor-deltaC')
+
+const listaInputsBoost = [inputVs,inputVo,inputIo,inputFch,inputL,inputC,inputDeltaL,inputDeltaC]
 
 const divResultado = document.querySelector('.div-resultado')
 const textoResultado = document.querySelector('.textoResultado')
@@ -219,6 +224,9 @@ function mostraresultado () {
 
 function resetarCampo() {
 
-
-
+    for (let i = 0 ; i < listaInputsBoost.length ;i++) {
+        listaInputsBoost[i].value = 0
+        
+    }
+    console.log('resetou') 
 }
