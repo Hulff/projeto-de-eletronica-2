@@ -136,6 +136,16 @@ h4 {
     margin-bottom: 40px;
 }
 
+.btn-change-color {
+    border-radius: 6px;
+    background-color: black;
+    width: 3%;
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    margin-left: 15px;
+}
+
 ::-webkit-scrollbar {
     width: 8px;
 }
