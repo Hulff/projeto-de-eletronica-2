@@ -16,6 +16,8 @@ const inputDeltaC = document.querySelector('#valor-deltaC')
 const divResultado = document.querySelector('.div-resultado')
 const textoResultado = document.querySelector('.textoResultado')
 
+const btnTrocarBoost = document.querySelector('#btn-trocar-boost')
+
 
 
 
@@ -41,6 +43,8 @@ function trocaropcao () {
         inputL.value = 0
         inputC.value = 0
 
+        btnTrocarBoost.innerHTML = 'Calcular L e C'
+
     } else if (liDeltaC.style.display!= 'none' && liDeltaL.style.display != 'none') {
 
         liDeltaC.style.display = 'none'
@@ -51,6 +55,8 @@ function trocaropcao () {
 
         inputDeltaL.value = 0
         inputDeltaC.value = 0
+
+        btnTrocarBoost.innerHTML = 'Calcular ΔVC e ΔIL'
     }
 }
 
@@ -202,9 +208,9 @@ function mostraresultado () {
     } else if (indentificarOpcao() == 'error') {
         textoResultado.innerHTML = ' Algum campo importante esta em 0'
     } else if (indentificarOpcao() == 'L') {
-        textoResultado.innerHTML = 'Indutancia = '+ L + ' microH' 
+        textoResultado.innerHTML = 'Indutancia = '+ L + ' µH' 
     } else if (indentificarOpcao() == 'C') {
-        textoResultado.innerHTML = 'Capacitancia ='+C+' microF'
+        textoResultado.innerHTML = 'Capacitancia ='+C+' µF'
     } else if ( indentificarOpcao() == 'all type 2') {
         textoResultado.innerHTML = 'Razão Cíclica = '+ D +'<br>'+'Indutancia = ' + L+' microH' + '<br>' + 'Capacitancia = ' + C + ' microF'
     }

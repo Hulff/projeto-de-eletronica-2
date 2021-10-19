@@ -44,24 +44,24 @@
                         <input type="number" placeholder="insira o valor aqui"  id="valor-io" value="0">
                     </li>
                     <li class="listas"> 
-                        <h3>Frequencia de Chaveamento (kilo)</h3>
+                        <h3>Frequencia de Chaveamento (KHz)</h3>
                         <input type="number" placeholder="insira o valor aqui"  id="valor-fch" value="0">
                     </li>
                   </ul>
                 </div>
                 <div class="div-trocar-boost">
-                    <h2>calcular x y</h2>
+                    <h2 id="btn-trocar-boost" >calcular ΔVC e ΔIL </h2>
                     <button onclick="trocaropcao()" class="btn-trocar-boost">trocar</button>
                 </div>
                 <div class="lista-input-secundaria">
                     <ul class="ul-input-secundaria">
                         <li id="L" class="listas">
-                            <h3>Indutância(micro)</h3>
+                            <h3>Indutância (µH)</h3>
                             <input class="input-secundarios" type="number" placeholder="insira o valor aqui"  id="valor-L" value="0">
                         </li>
                         
                         <li id="C" class="listas">
-                            <h3>Capacitância(micro)</h3>
+                            <h3>Capacitância (µF)</h3>
                             <input class="input-secundarios" type="number" placeholder="insira o valor aqui"  id="valor-C" value="0">
                         </li>
                         
@@ -83,6 +83,7 @@
             <div style="display: none;" class="div-btn-calcular">
                 <div class="div-calculo">
                     <button onclick="mostraresultado()" class="btn-calcular"> Calcular</button>
+                    <button onclick="resetarCampo()" class="btn-reset"><img src=""></button>
                 </div>
             </div>
             <div class="div-resultado" style="display: none;">

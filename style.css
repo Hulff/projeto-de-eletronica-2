@@ -106,12 +106,23 @@ h2 {
     margin-bottom: 50px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 .btn-calcular {
     background-color: black;
     border-radius: 20px;
     font-size: larger;
     padding: 4px 26px;
+    margin-right: 5%;
+}
+
+.btn-reset {
+    display: contents;
+}
+.btn-reset img {
+    border-radius: 51px;
+    background-color: black;
+    width: 4%;
 }
 
 .div-resultado {
