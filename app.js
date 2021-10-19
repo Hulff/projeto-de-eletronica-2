@@ -8,6 +8,7 @@ const liC = document.querySelector('#C')
 const liDeltaL = document.querySelector('#deltaL')
 const liDeltaC = document.querySelector('#deltaC')
 
+const inputVs =  document.querySelector()
 const inputL = document.querySelector('#valor-L')
 const inputC = document.querySelector('#valor-C')
 const inputDeltaL = document.querySelector('#valor-deltaL')
@@ -215,3 +216,9 @@ function mostraresultado () {
         textoResultado.innerHTML = 'Razão Cíclica = '+ D +'<br>'+'Indutancia = ' + L+' microH' + '<br>' + 'Capacitancia = ' + C + ' microF'
     }
 }; 
+
+function resetarCampo() {
+
+
+
+}
