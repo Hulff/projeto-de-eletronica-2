@@ -38,6 +38,8 @@ function mostrarConversorBoost() {
 
 function trocaropcao () {
 
+    
+    textoResultado.innerHTML= null
     if ( liDeltaC.style.display== 'none' && liDeltaL.style.display == 'none') {
         
         liDeltaC.style.display = 'initial'
@@ -223,6 +225,8 @@ function mostraresultado () {
 }; 
 
 function resetarCampo() {
+
+    textoResultado.innerHTML= null
 
     for (let i = 0 ; i < listaInputsBoost.length ;i++) {
         listaInputsBoost[i].value = 0

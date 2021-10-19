@@ -118,7 +118,6 @@ h2 {
 
 .btn-reset {
     background:none;
-    
 }
 .img-reset {
     width: 28px;
@@ -152,6 +151,18 @@ h4 {
     background-color: rgb(123, 122, 122);
 } 
 
+.btn-opcao:hover {
+    background-color:rgb(255, 255, 255);
+    color:black;
+}
+.btn-calcular:hover {
+    background-color:rgb(255, 255, 255);
+    color:black;
+}
+.btn-trocar-boost:hover {
+    background-color:rgb(255, 255, 255);
+    color:black;
+}
 
 .img-reset:hover {
     background-color:rgb(255, 255, 255);
