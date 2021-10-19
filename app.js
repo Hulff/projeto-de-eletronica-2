@@ -74,11 +74,11 @@ function calculosBoost() {
 
     }
 
-    if (L==0,C==0,deltaC==0,deltaL==0,fch==0) {
+    if (L==0 && C==0 && deltaC==0 && deltaL==0 &&fch==0) {
         return{
             razaoCiclica: D
         }    
-    } else if (L!=0,C!=0,deltaC==0,deltaL==0) {
+    } else if (L!=0 && C!=0 && deltaC==0 && deltaL==0) {
         return {
             razaoCiclica: D,
             ondulacaoC:formulas.deltaC,
@@ -86,13 +86,53 @@ function calculosBoost() {
             indutancia:L,
             capacitancia:C
         }
-    } else if (L==0,C==0,deltaC!=0,deltaL!=0) {
+    } else if (L==0 && C!=0 && deltaC==0 && deltaL==0) {
+        return {
+            razaoCiclica: D,
+            ondulacaoC:formulas.deltaC,
+            ondulacaoL:formulas.deltaL,
+            indutancia:L,
+            capacitancia:C
+        }
+    } else if (L!=0 && C==0 && deltaC==0 && deltaL==0) {
+        return {
+            razaoCiclica: D,
+            ondulacaoC:formulas.deltaC,
+            ondulacaoL:formulas.deltaL,
+            indutancia:L,
+            capacitancia:C
+        }
+    } else if (L==0 && C==0 && deltaC==0 && deltaL!=0) {
         return {
             razaoCiclica: D,
             indutancia:formulas.L,
             capacitancia:formulas.C,
             ondulacaoC:deltaC,
             ondulacaoL:deltaL
+        } 
+    } else if (L==0 && C==0 && deltaC!=0 && deltaL==0) {
+        return {
+            razaoCiclica: D,
+            indutancia:formulas.L,
+            capacitancia:formulas.C,
+            ondulacaoC:deltaC,
+            ondulacaoL:deltaL
+        } 
+    } else if (L==0 && C==0 && deltaC!=0 && deltaL!=0) {
+        return {
+            razaoCiclica: D,
+            indutancia:formulas.L,
+            capacitancia:formulas.C,
+            ondulacaoC:deltaC,
+            ondulacaoL:deltaL
+        }
+    } else {
+        return {
+            razaoCiclica: 0,
+            indutancia:0,
+            capacitancia:0,
+            ondulacaoC:0,
+            ondulacaoL:0
         }
     }
 };
@@ -119,19 +159,19 @@ function indentificarOpcao () {
     console.log('deltaC = '+ deltaC)
 
     
-      if (vs != 0 && vo != 0) {
+      while (vs != 0 && vo != 0 && fch ==0) {
         return 'D'
-    } else if ( C != 0 && L !=0 && io!=0) {
+    }; if ( C != 0 && L !=0 && io!=0 && fch != 0) {
         return 'all type 1'
-    } else if ( L !=0  ) {
+    } else if ( L !=0 && fch != 0 ) {
         return 'oIL'
-    } else if ( C != 0 && io != 0) {
+    } else if ( C != 0 && io != 0 && fch != 0) {
         return 'oVC'
-    } else if ( deltaL != 0 ) {
+    } else if ( deltaL != 0 && fch != 0 && deltaC ==0) {
         return 'L'
-    } else if ( deltaC !=0 && io !=0) {
+    } else if ( deltaC !=0 && io !=0 && fch != 0 && deltaL ==0) {
         return 'C'
-    } else if ( deltaC !=0 && io !=0 && deltaL != 0) {
+    } else if ( deltaC !=0 && io !=0 && deltaL != 0 && fch != 0) {
         return 'all type 2'
     }  else {
         return 'error'
