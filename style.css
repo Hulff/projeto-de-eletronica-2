@@ -113,16 +113,17 @@ h2 {
     border-radius: 20px;
     font-size: larger;
     padding: 4px 26px;
-    margin-right: 5%;
+    margin-right: 2%;
 }
 
 .btn-reset {
-    display: contents;
-}
-.btn-reset img {
-    border-radius: 51px;
     background-color: black;
-    width: 4%;
+    border-radius: 30px;
+    padding: 4px 12px 3px 11px;
+}
+.img-reset {
+    background-image: url(./images-removebg-preview\ \(1\).png);
+    width: 24px;
 }
 
 .div-resultado {
@@ -147,10 +148,16 @@ h4 {
     background-color: black;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background-color: rgb(41, 41, 41);
+    background-color: rgb(123, 122, 122);
 } 
 
 button:hover {
     background-color:rgb(255, 255, 255);
     color: black;
 }
+
+.btn-reset:hover {
+    background-color:rgb(255, 255, 255);
+}
+.img-reset:hover {
+} 
