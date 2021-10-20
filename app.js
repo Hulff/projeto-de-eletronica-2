@@ -24,6 +24,8 @@ const textoResultado = document.querySelector('.textoResultado')
 
 const btnTrocarBoost = document.querySelector('#btn-trocar-boost')
 
+const btnTrocarMedida = document.querySelector('.btn-trocar-unidade')
+
 
 
 
@@ -36,7 +38,7 @@ function mostrarConversorBoost() {
     btnBoost.disabled = true
 }
 
-function trocaropcao () {
+function trocarOpcao () {
 
     
     textoResultado.innerHTML= null
@@ -53,6 +55,7 @@ function trocaropcao () {
 
         btnTrocarBoost.innerHTML = 'Calcular L e C'
 
+
     } else if (liDeltaC.style.display!= 'none' && liDeltaL.style.display != 'none') {
 
         liDeltaC.style.display = 'none'
@@ -65,6 +68,8 @@ function trocaropcao () {
         inputDeltaC.value = 0
 
         btnTrocarBoost.innerHTML = 'Calcular ΔVC e ΔIL'
+
+       
     }
 }
 
@@ -235,6 +240,44 @@ function resetarCampo() {
     console.log('resetou') 
 }
 
+function trocarTextoBtnMedida () {
+
+    let modo = trocarOpcao().modo
+
+    if (modo == 1) {
+
+        btnTrocarMedida.innerText = 'Mudar unidades mili para V ou A'
+
+    } else if (modo == 2 ) {
+
+        btnTrocarMedida.innerText = 'Mudar unidades micro para mili' 
+    }
+
+}
+
 function mudarMedida () {
+
+    let D = calculosBoost().razaoCiclica
+    let L = calculosBoost().indutancia
+    let C = calculosBoost().capacitancia
+    let deltaC = calculosBoost().ondulacaoC
+    let deltaL = calculosBoost().ondulacaoL
+
+    textoResultado.innerHTML= null
     
+    if (indentificarOpcao() == 'all type 1') {
+        textoResultado.innerHTML = 'Razão Cíclica = '+ D +'<br>'+'Ondulação da Corrente no Indutor = ' + (deltaL/1000)+' A' + '<br>' + 'Ondulação da Tensão no Capacitor = ' + (deltaC/1000) + ' V'
+    } else if (indentificarOpcao() == 'oIL') {
+        textoResultado.innerHTML = 'Ondulação da Corrente no Indutor = ' + (deltaL/1000) +' A'
+    } else if ( indentificarOpcao() == 'oVC') {
+        textoResultado.innerHTML = 'Ondulação da Tensão no Capacitor = ' + (deltaC/1000)+ ' mV'
+    } else if (indentificarOpcao() == 'error') {
+        textoResultado.innerHTML = ' Algum campo importante esta em 0'
+    } else if (indentificarOpcao() == 'L') {
+        textoResultado.innerHTML = 'Indutancia = '+ (L/1000) + ' mH' 
+    } else if (indentificarOpcao() == 'C') {
+        textoResultado.innerHTML = 'Capacitancia ='+(C/1000)+' mF'
+    } else if ( indentificarOpcao() == 'all type 2') {
+        textoResultado.innerHTML = 'Razão Cíclica = '+ D +'<br>'+'Indutancia = ' + (L/1000)+' microH' + '<br>' + 'Capacitancia = ' + (C/1000) + ' microF'
+    }
 }
