@@ -234,3 +234,7 @@ function resetarCampo() {
     }
     console.log('resetou') 
 }
+
+function mudarMedida () {
+    
+}

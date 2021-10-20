@@ -10,12 +10,15 @@
             <h1 class="titulo-pagina">Eletrônica de Potência.</h1>
         </header>
         <div class="opcoes">
-            <div>
+            <div style="width: 15%;display: flex;justify-content: center;align-content: center;">
                 <button  class="btn-change-color">
-                    <h4>+</h4>
+                   <p>+</p>
                 </button>
             </div>
-        <div class="div-btn">
+            <div class="div-instrucoes">
+                <a href="#" class="link-instrucoes"><p class="texto-link-instrucao">Instruçoes para o uso</p></a>
+            </div>
+        <div class="div-btn" style="width: 100%;">
             <ul class="lista-btns">
                 <li class="lista-btns-opcoes">
                     <button onclick="mostrarConversorBoost()" class="btn-opcao" id="btn-boost" >Conversor CC-CC BOOST</button>
@@ -97,7 +100,10 @@
                 </div>
             </div>
             <div class="div-resultado" style="display: none;">
-                <h4 class="textoResultado"></h4>
+                <div class="div-resultado-estilo">
+                    <h4 class="textoResultado"></h4>
+                    <button class="btn-trocar-unidade" onclick="mudarMedida()">Mudar unidades (mili-micro)</button>
+                </div>
             </div>
         </footer>
         <script src="./app.js"></script>
