@@ -61,7 +61,7 @@
                   </ul>
                 </div>
                 <div class="div-trocar-boost">
-                    <h2 id="btn-trocar-boost" >calcular ΔVC e ΔIL </h2>
+                    <h2 id="btn-trocar-boost" >Calcular ΔVC e ΔIL </h2>
                     <button onclick="trocarOpcao()" class="btn-trocar-boost">trocar</button>
                 </div>
                 <div class="lista-input-secundaria">
@@ -102,7 +102,13 @@
             <div class="div-resultado" style="display: none;">
                 <div class="div-resultado-estilo">
                     <h4 class="textoResultado"></h4>
-                    <button class="btn-trocar-unidade" onclick="mudarMedida()">Mudar Unidade de Medida</button>
+                    <div class="div-unidade-display" style="display: none;">
+                        <div class="div-unidade-flex">
+                            <button class="btn-trocar-unidadeMili" onclick="mudarMedidaMili()">Mili</button>
+                            <button class="btn-trocar-unidadeMicro" onclick="mudarMedidaMicro()">Micro</button>
+                            <button class="btn-trocar-unidade"onclick="mudarMedida()">Normal</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </footer>

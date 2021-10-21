@@ -25,6 +25,10 @@ const textoResultado = document.querySelector('.textoResultado')
 const btnTrocarBoost = document.querySelector('#btn-trocar-boost')
 
 const btnTrocarMedida = document.querySelector('.btn-trocar-unidade')
+const btnTrocarMedidaMili = document.querySelector('.btn-trocar-unidadeMili')
+const btnTrocarMedidaMicro = document.querySelector('.btn-trocar-unidadeMicro')
+
+const  divbtnMedida = document.querySelector('.div-unidade-display')
 
 
 
@@ -55,6 +59,8 @@ function trocarOpcao () {
 
         btnTrocarBoost.innerHTML = 'Calcular L e C'
 
+        divbtnMedida.style.display = 'none'
+
 
     } else if (liDeltaC.style.display!= 'none' && liDeltaL.style.display != 'none') {
 
@@ -68,6 +74,8 @@ function trocarOpcao () {
         inputDeltaC.value = 0
 
         btnTrocarBoost.innerHTML = 'Calcular ΔVC e ΔIL'
+
+        divbtnMedida.style.display = 'none'
 
        
     }
@@ -168,14 +176,14 @@ function indentificarOpcao () {
     let deltaC = document.getElementById('valor-deltaC').value;
 
 
-    console.log('vs = '+vs)
-    console.log('vo = '+vo)
-    console.log('io = '+io)
-    console.log('fch = '+ fch)
+    console.log('Vs = '+vs)
+    console.log('Vo = '+vo)
+    console.log('Io = '+io)
+    console.log('Fch = '+ fch)
     console.log('C = ' + C)
     console.log('L = ' + L)
-    console.log('deltaL = '+ deltaL)
-    console.log('deltaC = '+ deltaC)
+    console.log('DeltaIL = '+ deltaL)
+    console.log('DeltaVC = '+ deltaC)
 
     
       while (vs != 0 && vo != 0 && fch ==0) {
@@ -199,8 +207,17 @@ function indentificarOpcao () {
 
 function mostraresultado () {
 
-    console.log(calculosBoost())
+    
     divResultado.style.display = 'initial'
+    
+    if (indentificarOpcao() == 'error') {
+        divbtnMedida.style.display = 'none'
+    } else if (indentificarOpcao() == 'D') {
+        divbtnMedida.style.display = 'none'
+    } else {
+        divbtnMedida.style.display = 'initial'    
+    }
+    
 
    let D = calculosBoost().razaoCiclica
    let L = calculosBoost().indutancia
@@ -232,6 +249,7 @@ function mostraresultado () {
 function resetarCampo() {
 
     textoResultado.innerHTML= null
+    divbtnMedida.style.display = 'none'
 
     for (let i = 0 ; i < listaInputsBoost.length ;i++) {
         listaInputsBoost[i].value = 0
@@ -241,17 +259,6 @@ function resetarCampo() {
 }
 
 function trocarTextoBtnMedida () {
-
-    let modo = trocarOpcao().modo
-
-    if (modo == 1) {
-
-        btnTrocarMedida.innerText = 'Mudar unidades mili para V ou A'
-
-    } else if (modo == 2 ) {
-
-        btnTrocarMedida.innerText = 'Mudar unidades micro para mili' 
-    }
 
 }
 

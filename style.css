@@ -156,13 +156,21 @@ h2 {
     align-items: center;
     flex-direction: column;
 }
-.btn-trocar-unidade {
+
+.div-unidade-display {
+    width: 22%
+}
+.div-unidade-flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.btn-trocar-unidade,.btn-trocar-unidadeMicro,.btn-trocar-unidadeMili { 
     border-radius: 7px;
-    padding: 3px;
+    padding: 4px;
     margin-bottom: 40px;
     background-color: black;
-    font-size: small;
-
+    margin-left: 10px;
 }
 
 .texto-link-instrucao{ 
