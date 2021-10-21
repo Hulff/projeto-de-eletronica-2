@@ -205,6 +205,18 @@ function indentificarOpcao () {
     }
 }
 
+function resetarCampo() {
+
+    textoResultado.innerHTML= null
+    divbtnMedida.style.display = 'none'
+
+    for (let i = 0 ; i < listaInputsBoost.length ;i++) {
+        listaInputsBoost[i].value = 0
+        
+    }
+    console.log('resetou') 
+}
+
 function mostraresultado () {
 
     
@@ -217,15 +229,14 @@ function mostraresultado () {
     } else {
         divbtnMedida.style.display = 'initial'    
     }
-    
-
-   let D = calculosBoost().razaoCiclica
-   let L = calculosBoost().indutancia
-   let C = calculosBoost().capacitancia
-   let deltaC = calculosBoost().ondulacaoC
-   let deltaL = calculosBoost().ondulacaoL
 
     textoResultado.innerHTML= null
+
+    let D = calculosBoost().razaoCiclica
+    let L = calculosBoost().indutancia
+    let C = calculosBoost().capacitancia
+    let deltaC = calculosBoost().ondulacaoC
+    let deltaL = calculosBoost().ondulacaoL
 
     if (indentificarOpcao() == 'D') {
         textoResultado.innerHTML = 'Razão Cíclica = '+ D
@@ -246,23 +257,9 @@ function mostraresultado () {
     }
 }; 
 
-function resetarCampo() {
+function mudarMedida () {
 
     textoResultado.innerHTML= null
-    divbtnMedida.style.display = 'none'
-
-    for (let i = 0 ; i < listaInputsBoost.length ;i++) {
-        listaInputsBoost[i].value = 0
-        
-    }
-    console.log('resetou') 
-}
-
-function trocarTextoBtnMedida () {
-
-}
-
-function mudarMedida () {
 
     let D = calculosBoost().razaoCiclica
     let L = calculosBoost().indutancia
@@ -270,14 +267,40 @@ function mudarMedida () {
     let deltaC = calculosBoost().ondulacaoC
     let deltaL = calculosBoost().ondulacaoL
 
-    textoResultado.innerHTML= null
-    
-    if (indentificarOpcao() == 'all type 1') {
+   if (indentificarOpcao() == 'all type 1') {
         textoResultado.innerHTML = 'Razão Cíclica = '+ D +'<br>'+'Ondulação da Corrente no Indutor = ' + (deltaL/1000)+' A' + '<br>' + 'Ondulação da Tensão no Capacitor = ' + (deltaC/1000) + ' V'
     } else if (indentificarOpcao() == 'oIL') {
         textoResultado.innerHTML = 'Ondulação da Corrente no Indutor = ' + (deltaL/1000) +' A'
     } else if ( indentificarOpcao() == 'oVC') {
-        textoResultado.innerHTML = 'Ondulação da Tensão no Capacitor = ' + (deltaC/1000)+ ' mV'
+        textoResultado.innerHTML = 'Ondulação da Tensão no Capacitor = ' + (deltaC/1000) + ' V'
+    } else if (indentificarOpcao() == 'L') {
+        textoResultado.innerHTML = 'Indutancia = '+ (L/1000000) + ' H' 
+    } else if (indentificarOpcao() == 'C') {
+        textoResultado.innerHTML = 'Capacitancia ='+(C/1000000) + ' F'
+    } else if ( indentificarOpcao() == 'all type 2') {
+        textoResultado.innerHTML = 'Razão Cíclica = '+ D +'<br>'+'Indutancia = ' + (L/1000000)+' H' + '<br>' + 'Capacitancia = ' + (C/1000000) + 'F'
+    }
+    console.log('mudou para unidade normal')
+    
+}
+
+function mudarMedidaMili () {
+    
+    textoResultado.innerHTML= null
+
+    let D = calculosBoost().razaoCiclica
+    let L = calculosBoost().indutancia
+    let C = calculosBoost().capacitancia
+    let deltaC = calculosBoost().ondulacaoC
+    let deltaL = calculosBoost().ondulacaoL
+
+    
+    if (indentificarOpcao() == 'all type 1') {
+        textoResultado.innerHTML = 'Razão Cíclica = '+ D +'<br>'+'Ondulação da Corrente no Indutor = ' + deltaL+' mA' + '<br>' + 'Ondulação da Tensão no Capacitor = ' + deltaC + ' mV'
+    } else if (indentificarOpcao() == 'oIL') {
+        textoResultado.innerHTML = 'Ondulação da Corrente no Indutor = ' + deltaL +' mA'
+    } else if ( indentificarOpcao() == 'oVC') {
+        textoResultado.innerHTML = 'Ondulação da Tensão no Capacitor = ' + deltaC + ' mV'
     } else if (indentificarOpcao() == 'error') {
         textoResultado.innerHTML = ' Algum campo importante esta em 0'
     } else if (indentificarOpcao() == 'L') {
@@ -285,6 +308,36 @@ function mudarMedida () {
     } else if (indentificarOpcao() == 'C') {
         textoResultado.innerHTML = 'Capacitancia ='+(C/1000)+' mF'
     } else if ( indentificarOpcao() == 'all type 2') {
-        textoResultado.innerHTML = 'Razão Cíclica = '+ D +'<br>'+'Indutancia = ' + (L/1000)+' microH' + '<br>' + 'Capacitancia = ' + (C/1000) + ' microF'
+        textoResultado.innerHTML = 'Razão Cíclica = '+ D +'<br>'+'Indutancia = ' + (L/1000)+' mH' + '<br>' + 'Capacitancia = ' + (C/1000) + ' mF'
     }
+    console.log('mudou para unidade mili')
+}
+
+function mudarMedidaMicro () {
+
+    textoResultado.innerHTML= null
+
+    let D = calculosBoost().razaoCiclica
+    let L = calculosBoost().indutancia
+    let C = calculosBoost().capacitancia
+    let deltaC = calculosBoost().ondulacaoC
+    let deltaL = calculosBoost().ondulacaoL
+
+    if (indentificarOpcao() == 'all type 1') {
+        textoResultado.innerHTML = 'Razão Cíclica = '+ D +'<br>'+'Ondulação da Corrente no Indutor = ' + (deltaL*1000)+' µA' + '<br>' + 'Ondulação da Tensão no Capacitor = ' + (deltaC*1000) + ' µV'
+    } else if (indentificarOpcao() == 'oIL') {
+        textoResultado.innerHTML = 'Ondulação da Corrente no Indutor = ' + (deltaL*1000) +' µA'
+    } else if ( indentificarOpcao() == 'oVC') {
+        textoResultado.innerHTML = 'Ondulação da Tensão no Capacitor = ' + (deltaC*1000) + ' µV'
+    } else if (indentificarOpcao() == 'error') {
+        textoResultado.innerHTML = ' Algum campo importante esta em 0'
+    } else if (indentificarOpcao() == 'L') {
+        textoResultado.innerHTML = 'Indutancia = '+ L + ' µH' 
+    } else if (indentificarOpcao() == 'C') {
+        textoResultado.innerHTML = 'Capacitancia ='+C+' µF'
+    } else if ( indentificarOpcao() == 'all type 2') {
+        textoResultado.innerHTML = 'Razão Cíclica = '+ D +'<br>'+'Indutancia = ' + L+' µH' + '<br>' + 'Capacitancia = ' + C + ' µF'
+    }
+
+    console.log('mudou para unidade micro')
 }
