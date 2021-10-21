@@ -1,5 +1,7 @@
 Link = https://hulff.github.io/projeto-de-eletronica-2/
 
+Email de contato: ph2717693@gmail.com
+
 Sobre:
 
 O site conta no momento com a funcionalidades de calcular algumas variáveis do Conversor CC-CC-Boost dentre elas : razão cíclica , Indutância  ,capacitância , ondulação , da corrente no indutor e ondulação da tensão no capacitor.
