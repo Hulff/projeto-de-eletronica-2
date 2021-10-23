@@ -22,7 +22,7 @@ const listaInputsBoost = [inputVs,inputVo,inputIo,inputFch,inputL,inputC,inputDe
 const divResultado = document.querySelector('.div-resultado')
 const textoResultado = document.querySelector('.textoResultado')
 
-const btnTrocarBoost = document.querySelector('#btn-trocar-boost')
+const textoTrocarBoost = document.querySelector('#texto-trocar-boost')
 
 const btnTrocarMedida = document.querySelector('.btn-trocar-unidade')
 const btnTrocarMedidaMili = document.querySelector('.btn-trocar-unidadeMili')
@@ -57,7 +57,7 @@ function trocarOpcao () {
         inputL.value = 0
         inputC.value = 0
 
-        btnTrocarBoost.innerHTML = 'Calcular L e C'
+        textoTrocarBoost.innerHTML = 'Calcular L e C'
 
         divbtnMedida.style.display = 'none'
 
@@ -73,7 +73,7 @@ function trocarOpcao () {
         inputDeltaL.value = 0
         inputDeltaC.value = 0
 
-        btnTrocarBoost.innerHTML = 'Calcular ΔVC e ΔIL'
+        textoTrocarBoost.innerHTML = 'Calcular ΔVC e ΔIL'
 
         divbtnMedida.style.display = 'none'
 
