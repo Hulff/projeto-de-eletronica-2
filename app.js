@@ -170,12 +170,11 @@ function indentificarOpcao () {
     let vo = document.getElementById('valor-vo').value;
     let io = document.getElementById('valor-io').value;
     let fch = document.getElementById('valor-fch').value;
-    let C = document.getElementById('valor-C').value;
-    let L = document.getElementById('valor-L').value;
-    let deltaL = document.getElementById('valor-deltaL').value;
-    let deltaC = document.getElementById('valor-deltaC').value;
-
-
+    let C = inputC.value;
+    let L = inputL.value;
+    let deltaL =inputDeltaL.value;
+    let deltaC = inputDeltaC.value;
+    
     console.log('Vs = '+vs)
     console.log('Vo = '+vo)
     console.log('Io = '+io)
@@ -184,7 +183,6 @@ function indentificarOpcao () {
     console.log('L = ' + L)
     console.log('DeltaIL = '+ deltaL)
     console.log('DeltaVC = '+ deltaC)
-
     
       while (vs != 0 && vo != 0 && fch ==0) {
         return 'D'
