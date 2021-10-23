@@ -23,6 +23,7 @@ const divResultado = document.querySelector('.div-resultado')
 const textoResultado = document.querySelector('.textoResultado')
 
 const textoTrocarBoost = document.querySelector('#texto-trocar-boost')
+const divTrocarBoostPorcentagem = document.querySelector('.div-trocar-boost-porcentagem')
 
 const btnTrocarMedida = document.querySelector('.btn-trocar-unidade')
 const btnTrocarMedidaMili = document.querySelector('.btn-trocar-unidadeMili')
@@ -58,6 +59,7 @@ function trocarOpcao () {
         inputC.value = 0
 
         textoTrocarBoost.innerHTML = 'Calcular L e C'
+        divTrocarBoostPorcentagem.style.display = 'initial'
 
         divbtnMedida.style.display = 'none'
 
@@ -74,6 +76,7 @@ function trocarOpcao () {
         inputDeltaC.value = 0
 
         textoTrocarBoost.innerHTML = 'Calcular ΔVC e ΔIL'
+        divTrocarBoostPorcentagem.style.display = 'none'
 
         divbtnMedida.style.display = 'none'
 
