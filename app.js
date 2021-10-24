@@ -1,3 +1,4 @@
+//BOOST
 const divBoost = document.querySelector('.div-conversor-boost')
 const divCalculo = document.querySelector('.div-btn-calcular')
 const btnBoost = document.querySelector('#btn-boost')
@@ -31,15 +32,31 @@ const divResultado = document.querySelector('.div-resultado')
 const textoResultado = document.querySelector('.textoResultado')
 
 const textoTrocarBoost = document.querySelector('#texto-trocar-boost')
-const divTrocarBoostPorcentagem = document.querySelector(
-  '.div-trocar-boost-porcentagem'
-)
 
 const btnTrocarMedida = document.querySelector('.btn-trocar-unidade')
 const btnTrocarMedidaMili = document.querySelector('.btn-trocar-unidadeMili')
 const btnTrocarMedidaMicro = document.querySelector('.btn-trocar-unidadeMicro')
 
 const divbtnMedida = document.querySelector('.div-unidade-display')
+
+// BUCK
+
+const divBuck = document.querySelector('.div-conversor-Buck')
+const btnBuck = document.querySelector('#btn-buck')
+
+const liLBuck = document.querySelector('#L-buck')
+const liCBuck = document.querySelector('#C-buck')
+const liDeltaLBuck = document.querySelector('#deltaL-buck')
+const liDeltaCBuck = document.querySelector('#deltaC-buck')
+
+const inputVsBuck = document.querySelector('#valor-vs-buck')
+const inputVoBuck = document.querySelector('#valor-vo-buck')
+const inputIoBuck = document.querySelector('#valor-io-buck')
+const inputFchBuck = document.querySelector('#valor-fch-buck')
+const inputLBuck = document.querySelector('#valor-L-buck')
+const inputCBuck = document.querySelector('#valor-C-buck')
+const inputDeltaLBuck = document.querySelector('#valor-deltaL-buck')
+const inputDeltaCBuck = document.querySelector('#valor-deltaC-buck')
 
 function mostrarConversorBoost() {
   divBoost.style.display = 'initial'
@@ -52,43 +69,77 @@ function mostrarConversorBoost() {
 
 function trocarOpcao() {
   textoResultado.innerHTML = null
-  if (liDeltaC.style.display == 'none' && liDeltaL.style.display == 'none') {
-    liDeltaC.style.display = 'initial'
-    liDeltaL.style.display = 'initial'
 
-    liL.style.display = 'none'
-    liC.style.display = 'none'
+  if (divBoost.style.display == 'initial') {
+    if (liDeltaC.style.display == 'none' && liDeltaL.style.display == 'none') {
+      liDeltaC.style.display = 'initial'
+      liDeltaL.style.display = 'initial'
 
-    inputL.value = 0
-    inputC.value = 0
+      liL.style.display = 'none'
+      liC.style.display = 'none'
 
-    textoTrocarBoost.innerHTML = 'Calcular L e C'
+      inputL.value = 0
+      inputC.value = 0
 
-    divbtnMedida.style.display = 'none'
-  } else if (
-    liDeltaC.style.display != 'none' &&
-    liDeltaL.style.display != 'none'
-  ) {
-    liDeltaC.style.display = 'none'
-    liDeltaL.style.display = 'none'
+      textoTrocarBoost.innerHTML = 'Calcular L e C'
 
-    liL.style.display = 'initial'
-    liC.style.display = 'initial'
+      divbtnMedida.style.display = 'none'
+    } else if (
+      liDeltaC.style.display != 'none' &&
+      liDeltaL.style.display != 'none'
+    ) {
+      liDeltaC.style.display = 'none'
+      liDeltaL.style.display = 'none'
 
-    inputDeltaL.value = 0
-    inputDeltaC.value = 0
+      liL.style.display = 'initial'
+      liC.style.display = 'initial'
 
-    textoTrocarBoost.innerHTML = 'Calcular ΔVC e ΔIL'
+      inputDeltaL.value = 0
+      inputDeltaC.value = 0
 
-    divbtnMedida.style.display = 'none'
+      textoTrocarBoost.innerHTML = 'Calcular ΔVC e ΔIL'
+
+      divbtnMedida.style.display = 'none'
+    }
+  } else if (divBoost.style.display == 0) {
+    if (liDeltaC.style.display == 'none' && liDeltaL.style.display == 'none') {
+      liDeltaC.style.display = 'initial'
+      liDeltaL.style.display = 'initial'
+
+      liL.style.display = 'none'
+      liC.style.display = 'none'
+
+      inputL.value = 0
+      inputC.value = 0
+
+      textoTrocarBoost.innerHTML = 'Calcular L e C'
+
+      divbtnMedida.style.display = 'none'
+    } else if (
+      liDeltaC.style.display != 'none' &&
+      liDeltaL.style.display != 'none'
+    ) {
+      liDeltaC.style.display = 'none'
+      liDeltaL.style.display = 'none'
+
+      liL.style.display = 'initial'
+      liC.style.display = 'initial'
+
+      inputDeltaL.value = 0
+      inputDeltaC.value = 0
+
+      textoTrocarBoost.innerHTML = 'Calcular ΔVC e ΔIL'
+
+      divbtnMedida.style.display = 'none'
+    }
   }
 }
 
 function calculosBoost() {
-  let vs = document.getElementById('valor-vs').value
-  let vo = document.getElementById('valor-vo').value
-  let io = document.getElementById('valor-io').value
-  let fch = document.getElementById('valor-fch').value
+  let vs = inputVs.value
+  let vo = inputVo.value
+  let io = inputIo.value
+  let fch = inputFch.value
   let C = inputC.value
   let L = inputL.value
   let deltaL = inputDeltaL.value
@@ -162,6 +213,28 @@ function calculosBoost() {
       ondulacaoC: 0,
       ondulacaoL: 0
     }
+  }
+}
+
+function calculosBuck() {
+  let vs = inputVs.value
+  let vo = inputVo.value
+  let io = inputIo.value
+  let fch = inputFch.value
+  let C = inputC.value
+  let L = inputL.value
+  let deltaL = inputDeltaL.value
+  let deltaC = inputDeltaC.value
+
+  let D = (vo / vs).toFixed(2)
+  let a = vs * D * (1 - D)
+  let L2 = (a / (fch * deltaL)).toFixed(0)
+
+  let formulas = {
+    C: ((a / L2) * fch * 8 * deltaC).toFixed(2),
+    deltaL: a / (fch * L),
+    deltaL2: a / (L2 * fch),
+    deltaC: a / (fch * C * 8 * L2)
   }
 }
 
