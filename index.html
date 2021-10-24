@@ -24,7 +24,7 @@
                     <button onclick="mostrarConversorBoost()" class="btn-opcao" id="btn-boost" >Conversor CC-CC BOOST</button>
                 </li>
                 <li class="lista-btns-opcoes">
-                    <button class="btn-opcao">projeto futuro</button>
+                    <button onclick="mostrarConversorBuck()" class="btn-opcao">Conversor CC-CC BUCK</button>
                 </li>
                 <li class="lista-btns-opcoes">
                     <button class="btn-opcao">projeto futuro</button>
@@ -63,12 +63,6 @@
                 <div class="div-trocar-boost">
                     <h2 id="texto-trocar-boost" >Calcular ΔVC e ΔIL </h2>
                     <button onclick="trocarOpcao()" class="btn-trocar-boost">trocar</button>
-                    <div class="div-trocar-boost-porcentagem" style="display: none;">
-                        <div class="div-trocar-boost-porcentagem-estilo">
-                            <h2 style="font-size: small;text-align: center;padding: 4px 3px;width: 100%;">Usar Porcentagem(%)</h2>
-                            <button class="btn-trocar-boost-porcentagem" onclick="madarParaPorcentagem()">(%)</button>
-                        </div>
-                    </div>
                 </div>
                 <div class="lista-input-secundaria">
                     <ul class="ul-input-secundaria">
@@ -95,6 +89,58 @@
                 </div>
              </div>
             </div>
+            <div style="display:none;" class="div-conversor-buck">
+                <div class="conversor-buck">
+                   <div class="lista-input-primaria">
+                     <ul class="ul-input-primaria">
+                         
+                       <li class="listas">
+                           <h3>Tensão de entrada</h3>
+                           <input type="number" placeholder="insira o valor aqui"  id="valor-vs-buck" value="0">
+                       </li>
+                       <li class="listas">
+                           <h3>Tensão de Saída</h3>
+                           <input type="number" placeholder="insira o valor aqui"  id="valor-vo-buck" value="0">
+                       </li>
+                       <li class="listas">
+                           <h3>Corrente de  Saída</h3>
+                           <input type="number" placeholder="insira o valor aqui"  id="valor-io-buck" value="0">
+                       </li>
+                       <li class="listas"> 
+                           <h3>Frequencia de Chaveamento (KHz)</h3>
+                           <input type="number" placeholder="insira o valor aqui"  id="valor-fch-buck" value="0">
+                       </li>
+                     </ul>
+                   </div>
+                   <div class="div-trocar-buck">
+                       <h2 id="texto-buck" >Calcular ΔVC e ΔIL </h2>
+                       <button onclick="trocarOpcao()" class="btn-trocar-buck">trocar</button>
+                   </div>
+                   <div class="lista-input-secundaria">
+                       <ul class="ul-input-secundaria">
+                           <li id="L" class="listas">
+                               <h3>Indutância (µH)</h3>
+                               <input class="input-secundarios" type="number" placeholder="insira o valor aqui"  id="valor-L-buck" value="0">
+                           </li>
+                           
+                           <li id="C" class="listas">
+                               <h3>Capacitância (µF)</h3>
+                               <input class="input-secundarios" type="number" placeholder="insira o valor aqui"  id="valor-C-buck" value="0">
+                           </li>
+                           
+                           <li id="deltaL" class="listas">
+                               <h3>Ondulação da Corrente no Indutor(mili)</h3>
+                               <input class="input-secundarios" type="number" placeholder="insira o valor aqui"  id="valor-deltaL-buck" value="0">
+                           </li>
+                           
+                           <li id="deltaC" class="listas">
+                               <h3>Ondulação da Tensão no Capacitor(mili)</h3>
+                               <input class="input-secundarios" type="number" placeholder="insira o valor aqui"  id="valor-deltaC-buck" value="0">
+                           </li>
+                       </ul>
+                   </div>
+                </div>
+               </div>
         </main>
         <footer>
             <div style="display: none;" class="div-btn-calcular">
