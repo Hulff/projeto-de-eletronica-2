@@ -208,6 +208,10 @@ h2 {
   padding: 2px;
   border-radius: 7px;
 }
+.texto-link-instrucao:hover {
+  background-color: white;
+  color: black;
+}
 .btn-change-color {
   border-radius: 6px;
   background-color: black;
