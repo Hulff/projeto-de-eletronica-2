@@ -41,7 +41,7 @@ const divbtnMedida = document.querySelector('.div-unidade-display')
 
 // BUCK
 
-const divBuck = document.querySelector('.div-conversor-Buck')
+const divBuck = document.querySelector('.div-conversor-buck')
 const btnBuck = document.querySelector('#btn-buck')
 
 const liLBuck = document.querySelector('#L-buck')
@@ -58,15 +58,46 @@ const inputCBuck = document.querySelector('#valor-C-buck')
 const inputDeltaLBuck = document.querySelector('#valor-deltaL-buck')
 const inputDeltaCBuck = document.querySelector('#valor-deltaC-buck')
 
+const listaInputsBuck = [
+  inputVsBuck,
+  inputVoBuck,
+  inputIoBuck,
+  inputFchBuck,
+  inputLBuck,
+  inputCBuck,
+  inputDeltaLBuck,
+  inputDeltaCBuck
+]
+
+const textoTrocarBuck = document.querySelector('#texto-buck')
+
 function mostrarConversorBoost() {
+  divBuck.style.display = 'none'
   divBoost.style.display = 'initial'
   divCalculo.style.display = 'initial'
 
   liDeltaC.style.display = 'none'
   liDeltaL.style.display = 'none'
   btnBoost.disabled = true
+  btnBuck.disabled = false
+
+  btnBoost.classList.toggle('desabilitado')
+  btnBuck.classList.remove('desabilitado')
 }
 
+function mostrarConversorBuck() {
+  divBoost.style.display = 'none'
+  divBuck.style.display = 'initial'
+  divCalculo.style.display = 'initial'
+
+  liDeltaCBuck.style.display = 'none'
+  liDeltaLBuck.style.display = 'none'
+  btnBoost.disabled = false
+  btnBuck.disabled = true
+
+  btnBuck.classList.toggle('desabilitado')
+  btnBoost.classList.remove('desabilitado')
+}
 function trocarOpcao() {
   textoResultado.innerHTML = null
 
@@ -101,36 +132,39 @@ function trocarOpcao() {
 
       divbtnMedida.style.display = 'none'
     }
-  } else if (divBoost.style.display == 0) {
-    if (liDeltaC.style.display == 'none' && liDeltaL.style.display == 'none') {
-      liDeltaC.style.display = 'initial'
-      liDeltaL.style.display = 'initial'
-
-      liL.style.display = 'none'
-      liC.style.display = 'none'
-
-      inputL.value = 0
-      inputC.value = 0
-
-      textoTrocarBoost.innerHTML = 'Calcular L e C'
-
-      divbtnMedida.style.display = 'none'
-    } else if (
-      liDeltaC.style.display != 'none' &&
-      liDeltaL.style.display != 'none'
+  } else if (divBuck.style.display == 'initial') {
+    if (
+      liDeltaCBuck.style.display == 'none' &&
+      liDeltaLBuck.style.display == 'none'
     ) {
-      liDeltaC.style.display = 'none'
-      liDeltaL.style.display = 'none'
+      liDeltaCBuck.style.display = 'initial'
+      liDeltaLBuck.style.display = 'initial'
 
-      liL.style.display = 'initial'
-      liC.style.display = 'initial'
+      liLBuck.style.display = 'none'
+      liCBuck.style.display = 'none'
 
-      inputDeltaL.value = 0
-      inputDeltaC.value = 0
+      inputLBuck.value = 0
+      inputCBuck.value = 0
 
-      textoTrocarBoost.innerHTML = 'Calcular ΔVC e ΔIL'
+      textoTrocarBuck.innerHTML = 'Calcular L e C'
 
-      divbtnMedida.style.display = 'none'
+      // divbtnMedida.style.display = 'none'
+    } else if (
+      liDeltaCBuck.style.display != 'none' &&
+      liDeltaLBuck.style.display != 'none'
+    ) {
+      liDeltaCBuck.style.display = 'none'
+      liDeltaLBuck.style.display = 'none'
+
+      liLBuck.style.display = 'initial'
+      liCBuck.style.display = 'initial'
+
+      inputDeltaLBuck.value = 0
+      inputDeltaCBuck.value = 0
+
+      textoTrocarBuck.innerHTML = 'Calcular ΔVC e ΔIL'
+
+      //divbtnMedida.style.display = 'none'
     }
   }
 }
@@ -217,24 +251,78 @@ function calculosBoost() {
 }
 
 function calculosBuck() {
-  let vs = inputVs.value
-  let vo = inputVo.value
-  let io = inputIo.value
-  let fch = inputFch.value
-  let C = inputC.value
-  let L = inputL.value
-  let deltaL = inputDeltaL.value
-  let deltaC = inputDeltaC.value
+  let vs = inputVsBuck.value
+  let vo = inputVoBuck.value
+  let fch = inputFchBuck.value
+  let C = inputCBuck.value
+  let L = inputLBuck.value
+  let deltaL = inputDeltaLBuck.value
+  let deltaC = inputDeltaCBuck.value
 
-  let D = (vo / vs).toFixed(2)
+  let D = (vo / vs).toFixed(1)
+
   let a = vs * D * (1 - D)
-  let L2 = (a / (fch * deltaL)).toFixed(0)
+
+  let Lf = (a / (fch * deltaL)).toFixed(0)
 
   let formulas = {
-    C: ((a / L2) * fch * 8 * deltaC).toFixed(2),
-    deltaL: a / (fch * L),
-    deltaL2: a / (L2 * fch),
-    deltaC: a / (fch * C * 8 * L2)
+    deltaL: ((a / (fch * L)) * 1000).toFixed(3),
+    deltaC: ((a / (fch * fch * C * L * 8)) * 1000000).toFixed(2),
+    Cf: ((a / (fch * fch * Lf * 8 * deltaC)) * 1000).toFixed(2)
+  }
+
+  if (L == 0 && C == 0 && deltaC == 0 && deltaL == 0 && fch == 0) {
+    return {
+      razaoCiclica: D
+    }
+  } else if (L != 0 && C != 0 && deltaC == 0 && deltaL == 0) {
+    return {
+      razaoCiclica: D,
+      ondulacaoC: formulas.deltaC,
+      ondulacaoL: formulas.deltaL,
+      indutancia: L,
+      capacitancia: C
+    }
+  } else if (L == 0 && C != 0 && deltaC == 0 && deltaL == 0) {
+    return {
+      razaoCiclica: D,
+      ondulacaoC: formulas.deltaC,
+      ondulacaoL: formulas.deltaL,
+      indutancia: L,
+      capacitancia: C
+    }
+  } else if (L != 0 && C == 0 && deltaC == 0 && deltaL == 0) {
+    return {
+      razaoCiclica: D,
+      ondulacaoC: formulas.deltaC,
+      ondulacaoL: formulas.deltaL,
+      indutancia: L,
+      capacitancia: C
+    }
+  } else if (L == 0 && C == 0 && deltaC == 0 && deltaL != 0) {
+    return {
+      razaoCiclica: D,
+      indutancia: Lf * 1000,
+      capacitancia: formulas.Cf,
+      ondulacaoC: deltaC,
+      ondulacaoL: deltaL
+    }
+  } else if (L == 0 && C == 0 && deltaC != 0 && deltaL != 0) {
+    return {
+      razaoCiclica: D,
+      indutancia: Lf * 1000,
+      capacitancia: formulas.Cf,
+      ondulacaoC: deltaC,
+      ondulacaoL: deltaL
+    }
+  } else {
+    return {
+      razaoCiclica: 0,
+      indutancia: 0,
+      capacitancia: 0,
+      ondulacaoC: 0,
+      ondulacaoL: 0
+    }
   }
 }
 
@@ -281,13 +369,21 @@ function resetarCampo() {
   textoResultado.innerHTML = null
   divbtnMedida.style.display = 'none'
 
-  for (let i = 0; i < listaInputsBoost.length; i++) {
-    listaInputsBoost[i].value = 0
+  if (divBoost.style.display == 'initial') {
+    for (let i = 0; i < listaInputsBoost.length; i++) {
+      listaInputsBoost[i].value = 0
+    }
+    console.log('resetou BOOST')
+  } else if (divBuck.style.display == 'initial') {
+    for (let i = 0; i < listaInputsBuck.length; i++) {
+      listaInputsBuck[i].value = 0
+    }
+
+    console.log('resetou BUCK')
   }
-  console.log('resetou')
 }
 
-function mostraresultado() {
+function mostrarResultadoBOOST() {
   divResultado.style.display = 'initial'
 
   if (indentificarOpcao() == 'error') {
@@ -491,4 +587,11 @@ function mudarMedidaMicro() {
   }
 
   console.log('mudou para unidade micro')
+}
+
+function mostrarResultado() {
+  if (divBoost.style.display == 'initial') {
+    mostrarResultadoBOOST()
+  } else if (divBuck.style.display == 'initial') {
+  }
 }
