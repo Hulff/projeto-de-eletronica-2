@@ -37,7 +37,7 @@ para o cálculo correto dos valores é necessário que os valores indutancia e c
 
 ## Funções Extras:
 
-1- mudar unidade
+1- mudar unidade <br>
 2- resetar campo
 
 ## Mudar unidade:
