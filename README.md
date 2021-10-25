@@ -2,11 +2,11 @@ Link = https://hulff.github.io/projeto-de-eletronica-2/
 
 Email de contato: ph2717693@gmail.com
 
-Sobre:
+## Sobre:
 
 O site conta no momento com a funcionalidades de calcular algumas variáveis do conversor CC-CC-Boost e do conversor CC-CC-Buck dentre elas : razão cíclica , Indutância  ,capacitância , ondulação , da corrente no indutor e ondulação da tensão no capacitor.
 
-Como calcular:
+## Como calcular:
 
 É recomendado que se preencha todos os campos para um melhor resultado.
 
@@ -25,7 +25,7 @@ preencha os novos campos e clique em calcular novamente.
 
 ![image](https://github.com/Hulff/projeto-de-eletronica-2/blob/master/imgs/4.PNG?raw=true)
 
-Regras:
+## Regras:
 
 para o cálculo correto dos valores é necessário que os valores indutancia e capacitancia sejam colocados em micro(µH e µF) os valores das ondulações da tensão e corrente precisam estar em mili(mV e mA) e o valor da frequência de chaveamento precisa ser colocado em Kilo ( KHz).
 
@@ -35,9 +35,12 @@ para o cálculo correto dos valores é necessário que os valores indutancia e c
 
 
 
-Funções Extras:
+## Funções Extras:
 
-Mudar unidade:
+1- mudar unidade
+2- resetar campo
+
+## Mudar unidade:
  
 Ao clicar em uma das opções("mili","micro","normal") o resultado será convertido para a tal.
 
@@ -45,7 +48,7 @@ Ao clicar em uma das opções("mili","micro","normal") o resultado será convert
 <br>
 ![image](https://github.com/Hulff/projeto-de-eletronica-2/blob/master/imgs/11.PNG?raw=true)
 
-Resetar campos:
+## Resetar campos:
 
 Ao clicar no botão todos os campos são resetados para zero
 
