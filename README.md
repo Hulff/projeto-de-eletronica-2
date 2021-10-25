@@ -4,7 +4,7 @@ Email de contato: ph2717693@gmail.com
 
 Sobre:
 
-O site conta no momento com a funcionalidades de calcular algumas variáveis do Conversor CC-CC-Boost dentre elas : razão cíclica , Indutância  ,capacitância , ondulação , da corrente no indutor e ondulação da tensão no capacitor.
+O site conta no momento com a funcionalidades de calcular algumas variáveis do conversor CC-CC-Boost e do conversor CC-CC-Buck dentre elas : razão cíclica , Indutância  ,capacitância , ondulação , da corrente no indutor e ondulação da tensão no capacitor.
 
 Como calcular:
 
